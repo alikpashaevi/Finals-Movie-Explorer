@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSearch, FaRegBookmark } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io"; 
+import { MdMovie } from "react-icons/md";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -49,9 +50,9 @@ export default function Header() {
           <>
             <Link
               to="/"
-              className="text-2xl font-bold mx-auto md:mx-0 md:mr-auto"
+              className="text-2xl font-bold mx-auto md:mx-0 md:mr-auto flex items-center gap-1"
             >
-              Movie Explorer
+              <span className="text-4xl text-blue-500"><MdMovie /></span> Movie Explorer
             </Link>
 
             <div className="flex items-center space-x-4">

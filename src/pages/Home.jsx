@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useSearchParams } from "react-router-dom"
 import axios from "axios"
 import MovieList from "../components/MovieList"
+import Loading from "../components/Loading"
 
 export default function Home() {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -33,8 +34,8 @@ export default function Home() {
     fetchMovies()
   }, [searchTerm])
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>{error}</div>
+  if (loading) return <div className="h-dvh w-full flex justify-center items-center"><Loading /></div>
+  if (error) return <div className="h-full w-full flex justify-center">{error}</div>
 
   return (
     <div>

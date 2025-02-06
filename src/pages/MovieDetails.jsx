@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import MovieList from "../components/MovieList"
+import Loading from "../components/Loading"
 
 export default function MovieDetails() {
   const apiKey = import.meta.env.VITE_API_KEY
@@ -50,9 +51,9 @@ export default function MovieDetails() {
     setIsFavorite(!isFavorite)
   }
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>{error}</div>
-  if (!movie) return <div>Movie not found</div>
+  if (loading) return <div className="h-dvh w-full flex justify-center items-center"><Loading /></div>
+  if (error) return <div className="h-full w-full flex justify-center">{error}</div>
+  if (!movie) return <div className="h-full w-full flex justify-center">Movie not found</div>
 
   return (
     <div>
@@ -82,7 +83,7 @@ export default function MovieDetails() {
           </p>
           <button
             onClick={toggleFavorite}
-            className={`px-4 py-2 rounded ${
+            className={`px-4 py-2 rounded cursor-pointer ${
               isFavorite ? "bg-red-600 hover:bg-red-700" : "bg-blue-600 hover:bg-blue-700"
             } text-white`}
           >

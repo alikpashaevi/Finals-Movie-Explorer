@@ -18,10 +18,10 @@ export default function MovieDetails() {
     const fetchMovieDetails = async () => {
       try {
         setLoading(true)
-        const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${apiKey}`)
+        const response = await axios.get(`https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`)
         setMovie(response.data)
         const similarResponse = await axios.get(
-          `http://www.omdbapi.com/?s=${response.data.Genre.split(", ")[0]}&type=movie&apikey=${apiKey}`,
+          `https://www.omdbapi.com/?s=${response.data.Genre.split(", ")[0]}&type=movie&apikey=${apiKey}`,
         )
         setSimilarMovies(similarResponse.data.Search || [])
       } catch (err) {
